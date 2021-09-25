@@ -7,7 +7,7 @@ namespace EagleEye.DataAccess.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly SqlDbContext.SqlDbContext _context;
+        protected readonly SqlDbContext.SqlDbContext _context;
         private DbSet<T> entities;
         private string ErrorMsg = string.Empty;
         public Repository(SqlDbContext.SqlDbContext context)

@@ -1,4 +1,5 @@
 using EagleEye.DataAccess.Entities;
+using EagleEye.DataAccess.Repository;
 using EagleEye.DataAccess.SqlDbContext;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -69,7 +70,9 @@ namespace EagleEye
                 };
             });
 
-
+            //Implementations
+            services.AddScoped<SqlDbContext>();
+            services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 
         }
 
