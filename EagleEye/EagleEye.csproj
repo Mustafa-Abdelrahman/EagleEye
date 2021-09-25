@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <Folder Include="DataAccess\UnitOfWork\" />
-    <Folder Include="DataAccess\Repository\" />
   </ItemGroup>
 
 </Project>
