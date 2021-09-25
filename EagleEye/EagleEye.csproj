@@ -22,10 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BusinessLogic\Services\" />
     <Folder Include="DataAccess\UnitOfWork\" />
     <Folder Include="DataAccess\Repository\" />
-    <Folder Include="Identity\" />
   </ItemGroup>
 
 </Project>
