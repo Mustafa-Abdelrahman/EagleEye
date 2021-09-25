@@ -12,11 +12,11 @@ namespace EagleEye.DataAccess.Repository.Repos.ProjectRepo
         public ProjectRepo(SqlDbContext.SqlDbContext context) : base(context) { }
 
 
-        public IEnumerable<Project> GetProjectsByAdmin(ProjectAdminstrator adminstrator)
+        public IEnumerable<Project> GetProjectsByAdminId(int adminId)
         {
-            if (adminstrator == null) throw new ArgumentNullException("adminstrator");
+            if (adminId == 0) throw new ArgumentException("adminId = 0");
 
-            return _context.Projects.Where(p => p.Adminstrator == adminstrator).ToList();
+            return _context.Projects.Where(p => p.AdminstratorId == adminId).ToList();
         }
 
         public IEnumerable<Project> GetProjectsByArea(int areaId)

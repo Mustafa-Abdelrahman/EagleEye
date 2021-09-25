@@ -9,7 +9,7 @@ namespace EagleEye.DataAccess.Repository.Repos.ProjectRepo
     public interface IProjectRepo : IRepository<Project>
     {
         IEnumerable<Project> GetProjectsByBudget(decimal from, decimal to);
-        IEnumerable<Project> GetProjectsByAdmin(ProjectAdminstrator adminstrator);
+        IEnumerable<Project> GetProjectsByAdminId(int adminId);
         IEnumerable<Project> GetProjectsByStatus(int statusId);
         IEnumerable<Project> GetProjectsByCity(int cityId);
         IEnumerable<Project> GetProjectsByArea(int areaId);
