@@ -1,5 +1,7 @@
+using EagleEye.BusinessLogic.Services;
 using EagleEye.DataAccess.Entities;
 using EagleEye.DataAccess.Repository;
+using EagleEye.DataAccess.Repository.Repos.ProjectRepo;
 using EagleEye.DataAccess.SqlDbContext;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -35,7 +37,8 @@ namespace EagleEye
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(op =>
+            op.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EagleEye", Version = "v1" });
@@ -51,28 +54,30 @@ namespace EagleEye
                 .AddDefaultTokenProviders();
 
             //Authentication and Json Web Token
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
-            {
-                options.SaveToken = true;
-                options.RequireHttpsMetadata = true;
-                options.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidAudience = Configuration["JWT:ValidAudience"],
-                    ValidIssuer = Configuration["JWT:ValidIssuer"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
-                };
-            });
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            //}).AddJwtBearer(options =>
+            //{
+            //    options.SaveToken = true;
+            //    options.RequireHttpsMetadata = true;
+            //    options.TokenValidationParameters = new TokenValidationParameters()
+            //    {
+            //        ValidateIssuer = true,
+            //        ValidateAudience = true,
+            //        ValidAudience = Configuration["JWT:ValidAudience"],
+            //        ValidIssuer = Configuration["JWT:ValidIssuer"],
+            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
+            //    };
+            //});
 
             //Implementations
             services.AddScoped<SqlDbContext>();
             services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
+            services.AddScoped<IProjectRepo,ProjectRepo>();
+            services.AddScoped<ProjectService>();
 
         }
 

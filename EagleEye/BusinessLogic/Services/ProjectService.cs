@@ -22,6 +22,7 @@ namespace EagleEye.BusinessLogic.Services
         public List<Project> GetProjectsByArea(int areaId) =>  _repo.GetProjectsByArea(areaId).ToList();
         public List<Project> GetProjectsByStatus(int statusValue) =>  _repo.GetProjectsByStatus(statusValue).ToList();
         public List<Project> GetProjectsByBudget(decimal from, decimal to) =>  _repo.GetProjectsByBudget(from, to).ToList();
+        public void CreateProject(Project project) => _repo.Add(project);
 
         public void UpdateProject(Project project) => _repo.Update(project);
         public void DeleteProject(Project project) => _repo.Delete(project);
