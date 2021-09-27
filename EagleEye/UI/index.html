@@ -279,7 +279,23 @@
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
+  $.widget.bridge('uibutton', $.ui.button);
+  $.ajax({
+
+    url: 'http://centricadmin-001-site1.htempurl.com/api/projects',
+    type: 'GET',
+    data: {
+      'numberOfWords': 10
+    },
+    dataType: 'json',
+    success: function (data) {
+      alert('Data: ' + data);
+      console.log(data);
+    },
+    error: function (request, error) {
+      alert("Request: " + JSON.stringify(request));
+    }
+  });
 </script>
 <!-- Bootstrap 4 rtl -->
 <script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js"></script>
