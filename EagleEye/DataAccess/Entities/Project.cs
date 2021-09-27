@@ -21,7 +21,7 @@ namespace EagleEye.DataAccess.Entities
         public ProjectAdminstrator Adminstrator { get; set; }
         public int AdminstratorId { get; set; }
         public decimal Budget { get; set; }
-        public decimal XCoordinate { get; set; }
-        public decimal YCoordinate { get; set; }
+        public string XCoordinate { get; set; }
+        public string YCoordinate { get; set; }
     }
 }

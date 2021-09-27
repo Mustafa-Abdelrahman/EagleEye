@@ -19,14 +19,14 @@ namespace EagleEye.Controllers
            this._projectService = projectService;
         }
 
-        [HttpGet] //api/Projects
+        [HttpGet] // /api/Projects
         public ActionResult<IEnumerable<Project>> GetAllProjects()
         {
            var projects =  _projectService.GetAllProjects;
             return Ok(projects);
         }
 
-        [HttpGet("{id}", Name ="GetProjectById")]
+        [HttpGet("{id}", Name ="GetProjectById")] // /api/Projects/5
         public ActionResult<Project> GetProjectById(int id)
         {
             var project = _projectService.GetProjectById(id);
