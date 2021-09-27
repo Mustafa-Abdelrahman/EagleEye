@@ -39,7 +39,7 @@ namespace EagleEye
 
 
             //CORS
-            services.AddCors(opt => opt.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin().AllowAnyHeader()));
+            services.AddCors(opt => opt.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 
 
             services.AddControllers().AddNewtonsoftJson(op =>
@@ -102,7 +102,7 @@ namespace EagleEye
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseCors();
+            app.UseCors("AllowAllOrigins");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
