@@ -280,19 +280,19 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
-  $.ajax({
+  // $.ajax({
 
-    url: 'http://centricadmin-001-site1.htempurl.com/api/projects',
-    type: 'GET',
-    dataType: 'json',
-    success: function (data) {
-      alert('Data: ' + data);
-      console.log(data);
-    },
-    error: function (request, error) {
-      alert("Request: " + JSON.stringify(request));
-    }
-  });
+  //   url: 'http://centricadmin-001-site1.htempurl.com/api/projects',
+  //   type: 'GET',
+  //   dataType: 'json',
+  //   success: function (data) {
+  //     alert('Data: ' + data);
+  //     console.log(data);
+  //   },
+  //   error: function (request, error) {
+  //     alert("Request: " + JSON.stringify(request));
+  //   }
+  // });
 </script>
 <!-- Bootstrap 4 rtl -->
 <script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js"></script>
