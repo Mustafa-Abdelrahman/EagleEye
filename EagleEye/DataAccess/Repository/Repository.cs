@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,13 @@ namespace EagleEye.DataAccess.Repository
     public class Repository<T> : IRepository<T> where T : class
     {
         protected readonly SqlDbContext.SqlDbContext _context;
+        protected readonly IMapper _mapper;
         private DbSet<T> entities;
         private string ErrorMsg = string.Empty;
-        public Repository(SqlDbContext.SqlDbContext context)
+        public Repository(SqlDbContext.SqlDbContext context, IMapper mapper)
         {
             this._context = context;
+            this._mapper = mapper;
             entities = context.Set<T>();
         }
 
@@ -42,10 +45,20 @@ namespace EagleEye.DataAccess.Repository
             _context.SaveChanges();
         }
 
-        public void Update(T Entity)
+        //public void Update(T Entity)
+        //{
+        //    if (Entity == null) throw new ArgumentNullException("Entity");
+        //    _context.SaveChanges();
+        //}
+
+        public void Update(T EntityModel, T UpdatedEntity)
         {
-            if (Entity == null) throw new ArgumentNullException("Entity");
+            if (EntityModel == null) throw new ArgumentNullException("EntityModel");
+            if (UpdatedEntity == null) throw new ArgumentNullException("UpdatedEntity");
+
+            _mapper.Map(UpdatedEntity, EntityModel);
             _context.SaveChanges();
+
         }
     }
 }

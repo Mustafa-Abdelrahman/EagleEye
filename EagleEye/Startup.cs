@@ -48,6 +48,9 @@ namespace EagleEye
             services.AddDbContext<SqlDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("CloudDBConnection")));
 
+            //AutoMapper
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             //Identity
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<SqlDbContext>()

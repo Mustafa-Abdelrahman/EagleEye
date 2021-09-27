@@ -1,4 +1,5 @@
-﻿using EagleEye.DataAccess.Entities;
+﻿using AutoMapper;
+using EagleEye.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace EagleEye.DataAccess.Repository.Repos.ProjectRepo
 {
     public class ProjectRepo : Repository<Project>, IProjectRepo
     {
-        public ProjectRepo(SqlDbContext.SqlDbContext context) : base(context) { }
+        public ProjectRepo(SqlDbContext.SqlDbContext context , IMapper mapper) : base(context, mapper) { }
 
 
         public IEnumerable<Project> GetProjectsByAdminId(int adminId)

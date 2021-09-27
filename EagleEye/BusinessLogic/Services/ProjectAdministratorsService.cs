@@ -18,7 +18,7 @@ namespace EagleEye.BusinessLogic.Services
 
         public List<ProjectAdminstrator> GetAllAdmins() => _repo.GetAll().ToList();
         public ProjectAdminstrator GetAdminById(int Id) => _repo.GetById(Id);
-        public void UpdateAdmin(ProjectAdminstrator admin) => _repo.Update(admin);
+        public void UpdateAdmin(ProjectAdminstrator adminModel, ProjectAdminstrator updatedAdmin) => _repo.Update(adminModel, updatedAdmin);
         public void DeleteAdmin(ProjectAdminstrator admin) => _repo.Delete(admin);
     }
 }

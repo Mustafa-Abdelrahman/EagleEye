@@ -18,7 +18,7 @@ namespace EagleEye.BusinessLogic.Services
 
         public List<Area> GetAllAreas() => _repo.GetAll().ToList();
         public Area GetAreaById(int Id) => _repo.GetById(Id);
-        public void UpdateArea(Area area) => _repo.Update(area);
+        public void UpdateArea(Area areaModel, Area updatedArea) => _repo.Update(areaModel, updatedArea);
         public void DeleteArea(Area area) => _repo.Delete(area);
     }
 }

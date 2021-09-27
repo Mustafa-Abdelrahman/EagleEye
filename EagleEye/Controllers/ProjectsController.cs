@@ -53,12 +53,12 @@ namespace EagleEye.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<Project> UpdateProject(int id , Project project)
+        public ActionResult<Project> UpdateProject(int id ,[FromBody] Project project)
         {
             var projectModel = _projectService.GetProjectById(id);
             if (projectModel != null)
             {
-                _projectService.UpdateProject(project);
+                _projectService.UpdateProject(projectModel,project);
                 return NoContent();
             }
             return NotFound();

@@ -10,7 +10,7 @@ namespace EagleEye.DataAccess.Repository
         IEnumerable<T> GetAll();
         T GetById(object Id);
         void Add(T Entity);
-        void Update(T Entity);
+        void Update(T EntityModel, T UpdatedEntity);
         void Delete(T Entity);
     }
 }
