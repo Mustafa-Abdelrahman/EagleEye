@@ -30,30 +30,15 @@
   <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css">
   <!-- Custom style for RTL -->
   <link rel="stylesheet" href="dist/css/custom.css">
- 
+
+<!--  ESRI API
   <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
-  <script src="https://js.arcgis.com/4.21/"></script>
+  <script src="https://js.arcgis.com/4.21/"></script>-->
 
-   <link rel="stylesheet" href="dist/css/SiteStyles.css"/>
-<script src="dist/js/pages/dashboardMap.js"></script>
-<script>
-  require(["esri/config","esri/Map", "esri/views/MapView"], function (esriConfig,Map, MapView) {
-    require(["esri/config","esri/Map", "esri/views/MapView"], function (esriConfig,Map, MapView) {
+   <link rel="stylesheet" href="dist/css/SiteStyles.css"/> 
 
-        esriConfig.apiKey = "AAPKadacbbe0970c4cad81280256fa94fd9bgTNIuJTKlbeUaV1T1gpCVEy-1oulAFk8ylPOpVzVIfq97TccT4BTO-iN9m8bYdB8";
+<script src="dist/js/pages/dashboardMap.js"></script> <!--MAP JS Code GOES HERE-->
 
-        const map = new Map({
-          basemap: "arcgis-topographic" // Basemap layer service
-        });
-        const view = new MapView({
-            map: map,
-            center: [-118.805, 34.027], // Longitude, latitude
-            zoom: 13, // Zoom level
-            container: "map" // Div element
-          });
-      })
-    });
-</script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -73,111 +58,6 @@
       </li>
     </ul>
 
-    <!-- SEARCH FORM -->
-    <!-- <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form> -->
-
-    <!-- Right navbar links -->
-    <!-- <ul class="navbar-nav mr-auto-navbav">
-      <!-- Messages Dropdown Menu -->
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-             Message Start 
-            <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-           
-            <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-           
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            
-            <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-           
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-       -->
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
-    </ul>  -->
   </nav>
   <!-- /.navbar -->
 
@@ -649,7 +529,7 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box)  صفحة المشاريع--> 
-        <!-- <div class="row">
+        <div class="row">
           <div class="col-lg-3 col-6">
            
             <div class="small-box bg-info">
@@ -713,7 +593,7 @@
             </div>
           </div>
           
-        </div> -->
+        </div>
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
