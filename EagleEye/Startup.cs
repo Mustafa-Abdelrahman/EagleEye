@@ -51,6 +51,9 @@ namespace EagleEye
             //AutoMapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+            //CORS
+            services.AddCors(opt => opt.AddPolicy("AllowAllOrigins",builder=> builder.AllowAnyOrigin()));
+
             //Identity
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<SqlDbContext>()
