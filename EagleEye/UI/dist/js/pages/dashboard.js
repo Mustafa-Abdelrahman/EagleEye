@@ -1,3 +1,21 @@
+
+$(function(){
+    $('#table').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": false,
+        "autoWidth": false,
+      });
+});
+
+
+
+
+
+
+
 /*
  * Author: Abdullah A Almsaeed
  * Date: 4 Jan 2014
