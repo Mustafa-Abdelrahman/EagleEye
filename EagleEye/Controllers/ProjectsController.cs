@@ -17,7 +17,7 @@ namespace EagleEye.Controllers
         public ProjectsController(ProjectService projectService)
         {
            this._projectService = projectService;
-            projectService.FilterProjects("1000", "2500000", "1", "1", null, "2021-09-10", null);
+         
         }
 
         [HttpGet] // /api/Projects
