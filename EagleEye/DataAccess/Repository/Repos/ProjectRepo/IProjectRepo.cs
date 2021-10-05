@@ -13,6 +13,7 @@ namespace EagleEye.DataAccess.Repository.Repos.ProjectRepo
         IEnumerable<Project> GetProjectsByStatus(int statusId);
         IEnumerable<Project> GetProjectsByCity(int cityId);
         IEnumerable<Project> GetProjectsByArea(int areaId);
-        
+        IEnumerable<Project> FilterProjects(string budgetFrom, string budgetTo, string cityId, string areaId, string statusCode, string startDate, string endDate);
+
     }
 }

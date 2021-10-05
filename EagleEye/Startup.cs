@@ -51,7 +51,8 @@ namespace EagleEye
 
             //EF Core
             services.AddDbContext<SqlDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("CloudDBConnection")));
+            //options.UseSqlServer(Configuration.GetConnectionString("CloudDBConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("LocalSqlDbContext")));
 
             //AutoMapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

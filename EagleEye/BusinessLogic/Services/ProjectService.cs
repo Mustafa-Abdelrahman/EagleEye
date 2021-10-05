@@ -27,5 +27,9 @@ namespace EagleEye.BusinessLogic.Services
         public void UpdateProject(Project projectModel, Project updatedProject) => _repo.Update(projectModel,updatedProject);
         public void DeleteProject(Project project) => _repo.Delete(project);
 
+        public List<Project> FilterProjects(string budgetFrom, string budgetTo, string cityId, string areaId, string statusCode, string startDate, string endDate)
+        {
+            return _repo.FilterProjects(budgetFrom, budgetTo, cityId, areaId, statusCode, startDate, endDate).ToList();
+        }
     }
 }
